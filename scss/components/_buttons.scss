@@ -1,0 +1,82 @@
+@use '../components/mixins' as *;
+@use '../custom' as *;
+
+.btn-rounded{
+    @include media-breakpoint-down(sm){
+        display: none;
+    }
+    @include media-breakpoint-down(md){
+        justify-content: space-between;
+    }
+    @include media-breakpoint-down(lg){
+        justify-content: space-between;
+    }
+    position: relative;
+    padding: 0.9375rem 4.375rem 0.9375rem 1.25rem;
+    font-weight: 500;
+    margin: 0;
+    border:0.1rem solid rgba($white, 0.6) ;
+    background-color: $white;
+    font-weight: 700;
+
+    span{
+        position: absolute;
+        background-color: $primary;
+        width: 2.5rem;
+        height: 2.5rem;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+
+        i{
+            color: $white;
+            font-size: 1rem;
+            line-height: 2.5rem;
+            
+        }
+    }
+    &:hover{
+        @include gradient;
+        color:white;
+        span{
+            background-color: rgba($black, 0.6);
+        }
+    }
+
+}
+.btn{
+    color: #fff;
+    background-color: $primary;
+    border-color: $secondary;
+    opacity: 1;
+    box-shadow: none !important;
+    &:hover{
+        background-color: $secondary;
+    }
+    &:active{
+        background-color: $secondary ;
+        border-color: $secondary;
+        box-shadow: none;
+    }
+    &:first-child{
+        &:active{
+            background-color: $purple-dark;
+        }
+    }
+    .btn-check:checked + &,
+    :not(.btn-check) + &:active,
+    &:first-child:active,
+    &.active,
+    &.show {
+        background-color: $purple-dark;
+}
+    .btn-outline-primary{
+        &:active{
+            box-shadow: none;
+            &:checked{
+                box-shadow: none;
+            }
+        }   
+    }
+}
